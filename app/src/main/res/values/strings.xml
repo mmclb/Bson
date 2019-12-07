@@ -2,6 +2,10 @@
 <resources>
 
     <string name="app_name">Bson</string>
-    <string name="hello_world">Hello world!</string>
-
+    <string name="read_error">内部错误:%s</string>
+	<string name="no_internet_description">无可用网络,应用无法正常使用.</string>
+	<string name="no_internet_title">无网络</string>
+	<string name="go_to_settings">设置</string>
+	<string name="ok">确认</string>
+	
 </resources>
