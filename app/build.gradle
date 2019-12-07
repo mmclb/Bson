@@ -20,7 +20,6 @@ android {
 }
 
 dependencies {
-	compile project(':SharedPreferencesPlus')
 	compile 'com.android.support:appcompat-v7:+'
     compile fileTree(dir: 'libs', include: ['*.jar'])
 }
