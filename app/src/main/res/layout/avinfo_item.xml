@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:orientation="horizontal"
+	android:gravity="left|center_vertical"
+	android:padding="10dp"
+	android:weightSum="1.0">
+
+	<LinearLayout
+		android:layout_height="wrap_content"
+		android:layout_width="0dp"
+		android:orientation="vertical"
+		android:gravity="left|center_vertical"
+		android:layout_weight="1.0">
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:text="Text"
+			android:id="@+id/avinfoitemTextView1"/>
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:text="Text"
+			android:id="@+id/avinfoitemTextView2"/>
+
+		<ProgressBar
+			style="?android:attr/progressBarStyleHorizontal"
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:id="@+id/avinfoitemProgressBar1"/>
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:orientation="horizontal"
+		android:gravity="right|center_vertical"
+		android:layout_weight="0">
+
+		<Button
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:text="@string/spawn"
+			android:id="@+id/avinfoitemButton1"/>
+
+		<CheckBox
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:id="@+id/avinfoitemCheckBox1"/>
+
+	</LinearLayout>
+
+</LinearLayout>
+

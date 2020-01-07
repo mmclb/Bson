@@ -3,9 +3,51 @@
 
     <string name="app_name">Bson</string>
     <string name="read_error">内部错误:%s</string>
+	<string name="no_letters">%s(无需前缀字母)</string>
+	<string name="about">关于</string>
 	<string name="no_internet_description">无可用网络,应用无法正常使用.</string>
 	<string name="no_internet_title">无网络</string>
 	<string name="go_to_settings">设置</string>
 	<string name="ok">确认</string>
+	<string name="mobile_data_title">移动数据连接</string>
+	<string name="mobile_data_description">当前为移动数据连接,仍然继续?您可以在设置中关闭本提示.</string>
+	<string name="avid">av号</string>
+	<string name="epid">ep号</string>
+	<string name="settings_output_dir">目的位置</string>
+	<string name="spawn">导入!</string>
+	<string name="settings">设置</string>
+	<string name="settings_normal">通用</string>
+	<string name="settings_promot_on_mobile_data">在移动数据下发出提醒</string>
+	<string name="settings_advanced">高级</string>
+	<string name="settings_advanced_description">不建议修改下列设置.如果您误动了下列设置导致应用无法使用,可使用右边的按钮复原.</string>
+	<string name="settings_advanced_recover">复原高级设置</string>
+	<string name="settings_typetag">类型标签</string>
+	<string name="settings_preferedquality">意向品质</string>
+	<string name="freead_title">公益广告</string>
+	<string name="freead_description">GsonFormat是一款很实用的应用,配合Gson库可以很快地将Json文本转化为代码.这个应用在本应用开发过程中起了重大作用.事实上,本应用的图标也是用它的图标改造的.因此我决定给它做一个免费的广告.</string>
+	<string name="freead_open">GsonFormat</string>
+	<string name="avid_format">av%d</string>
+	<string name="epid_format">ep%d</string>
+	<string name="api_error">出错了</string>
+	<string name="stats">统计</string>
+	<string name="settings_show_stats">显示统计</string>
+	<string name="uploader_format">UP主:</string>
+	<string name="view_format">播放:%s</string>
+	<string name="like_format">点赞:%s</string>
+	<string name="coin_format">投币:%s</string>
+	<string name="favorite_format">收藏:%s</string>
+	<string name="danmaku_format">弹幕:%s</string>
+	<string name="reply_format">评论:%s</string>
+	<string name="loading">加载中...</string>
+	<string name="cid_format">cid=%d</string>
+	<string name="epinfo_format">aid=%1$d cid=%2$d</string>
+	<string name="select">选择...</string>
+	<string name="select_all">全选</string>
+	<string name="deselect_all">全不选</string>
+	<string name="already_spawned_warning">该分P(%s)已导入或下载过,强行导入可能导致问题,仍然继续?</string>
+	<string name="still_continue">仍然继续</string>
+	<string name="cancel">取消</string>
+	<string name="open_in_bilibili">用bilibili打开</string>
+	<string name="open_cover">转至封面下载/预览</string>
 	
 </resources>

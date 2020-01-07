@@ -26,7 +26,7 @@ public class BiliEntry
     /** Page_data is the inner class of BiliEntry */
     public class Page_data
 	{
-        public Long cid;
+        public Integer cid;
         public Integer page;
         public String from;
         public String part;

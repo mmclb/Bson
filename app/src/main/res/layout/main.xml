@@ -5,12 +5,79 @@
 	android:layout_height="fill_parent"
 	android:orientation="vertical">
 
-	<include layout="@layout/toolbar_common"/>
-	
-	<EditText
+	<include
+		layout="@layout/toolbar_common"/>
+
+	<ScrollView
 		android:layout_height="wrap_content"
-		android:layout_width="match_parent"
-		android:ems="10"/>
+		android:layout_width="wrap_content">
+
+		<RelativeLayout
+			android:layout_height="match_parent"
+			android:layout_width="match_parent">
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:orientation="vertical"
+				android:padding="10dp">
+
+				<EditText
+					android:layout_height="wrap_content"
+					android:layout_width="match_parent"
+					android:ems="10"
+					android:layout_margin="10dp"
+					android:id="@+id/mainEditText1"
+					android:inputType="number"/>
+
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="match_parent"
+					android:orientation="horizontal"
+					android:weightSum="1.0"
+					android:layout_margin="10dp">
+
+					<Button
+						android:layout_height="wrap_content"
+						android:layout_width="0dp"
+						android:text="@string/spawn"
+						android:layout_weight="0.5"
+						android:layout_marginRight="5dp"
+						android:onClick="onImportButtonClicked"/>
+
+					<RadioGroup
+						android:layout_height="match_parent"
+						android:layout_width="0dp"
+						android:orientation="horizontal"
+						android:layout_weight="0.5"
+						android:gravity="center"
+						android:layout_marginLeft="5dp"
+						android:id="@+id/mainRadioGroup1">
+
+						<RadioButton
+							android:layout_height="match_parent"
+							android:layout_width="wrap_content"
+							android:text="@string/avid"
+							android:layout_weight="0.25"
+							android:checked="true"
+							android:id="@+id/mainRadioButton1"/>
+
+						<RadioButton
+							android:layout_height="match_parent"
+							android:layout_width="wrap_content"
+							android:text="@string/epid"
+							android:layout_weight="0.25"
+							android:id="@+id/mainRadioButton2"/>
+
+					</RadioGroup>
+
+				</LinearLayout>
+
+			</LinearLayout>
+
+		</RelativeLayout>
+
+	</ScrollView>
 
 </LinearLayout>
 

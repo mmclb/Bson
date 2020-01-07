@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <item
+        android:id="@+id/item_open_in_bilibili"
+        android:title="@string/open_in_bilibili"/>
+	
+	<item
+		android:id="@+id/item_open_cover"
+		android:title="@string/open_cover"/>
+    
+</menu>

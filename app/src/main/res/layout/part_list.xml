@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="vertical">
+
+	<include
+		layout="@layout/toolbar_common"/>
+
+	<ScrollView
+		android:layout_height="match_parent"
+		android:layout_width="match_parent"
+		android:fillViewport="true">
+
+		<RelativeLayout
+			android:layout_height="match_parent"
+			android:layout_width="match_parent">
+
+			<LinearLayout
+				android:layout_height="match_parent"
+				android:layout_width="match_parent"
+				android:orientation="vertical"
+				android:padding="10dp"
+				android:id="@+id/partlistLinearLayout1">
+
+				<TextView
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content"
+					android:text="null"
+					android:layout_margin="10dp"
+					android:id="@+id/partlistTextView1"
+					android:textSize="20sp"/>
+
+				<TextView
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content"
+					android:text="null"
+					android:layout_margin="10dp"
+					android:id="@+id/partlistTextView2"/>
+
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="match_parent"
+					android:orientation="vertical"
+					android:layout_margin="10dp"
+					android:id="@+id/partlistLinearLayoutStats">
+
+					<TextView
+						android:layout_height="wrap_content"
+						android:layout_width="wrap_content"
+						android:text="@string/stats"
+						android:textSize="15sp"/>
+
+					<LinearLayout
+						android:layout_height="wrap_content"
+						android:layout_width="match_parent"
+						android:orientation="horizontal"
+						android:weightSum="1.0"
+						android:padding="10dp">
+
+						<TextView
+							android:layout_height="wrap_content"
+							android:layout_width="0dp"
+							android:text="@string/view_format"
+							android:layout_weight="0.333333"
+							android:id="@+id/partlistTextView4"/>
+
+						<TextView
+							android:layout_height="wrap_content"
+							android:layout_width="0dp"
+							android:text="@string/danmaku_format"
+							android:layout_weight="0.333333"
+							android:id="@+id/partlistTextView5"/>
+
+						<TextView
+							android:layout_height="wrap_content"
+							android:layout_width="0dp"
+							android:text="@string/reply_format"
+							android:layout_weight="0.333333"
+							android:id="@+id/partlistTextView6"/>
+
+					</LinearLayout>
+
+					<LinearLayout
+						android:layout_height="wrap_content"
+						android:layout_width="match_parent"
+						android:orientation="horizontal"
+						android:weightSum="1.0"
+						android:padding="10dp">
+
+						<TextView
+							android:layout_height="wrap_content"
+							android:layout_width="0dp"
+							android:text="@string/like_format"
+							android:layout_weight="0.333333"
+							android:id="@+id/partlistTextView7"/>
+
+						<TextView
+							android:layout_height="wrap_content"
+							android:layout_width="0dp"
+							android:text="@string/coin_format"
+							android:layout_weight="0.333333"
+							android:id="@+id/partlistTextView8"/>
+
+						<TextView
+							android:layout_height="wrap_content"
+							android:layout_width="0dp"
+							android:text="@string/favorite_format"
+							android:layout_weight="0.333333"
+							android:id="@+id/partlistTextView9"/>
+
+					</LinearLayout>
+
+				</LinearLayout>
+
+				<Switch
+					android:layout_height="wrap_content"
+					android:layout_width="match_parent"
+					android:layout_margin="10dp"
+					android:text="@string/select"
+					android:id="@+id/partlistSwitch1"/>
+
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="match_parent"
+					android:orientation="horizontal"
+					android:gravity="center"
+					android:weightSum="1.0"
+					android:layout_margin="10dp"
+					android:id="@+id/partlistLinearLayout2">
+
+					<Button
+						android:layout_height="wrap_content"
+						android:layout_width="0dp"
+						android:text="@string/select_all"
+						android:layout_weight="0.33333"
+						android:onClick="onButtonClick"
+						android:id="@+id/partlistButton1"/>
+
+					<Button
+						android:layout_height="wrap_content"
+						android:layout_width="0dp"
+						android:text="@string/deselect_all"
+						android:layout_weight="0.33333"
+						android:onClick="onButtonClick"
+						android:id="@+id/partlistButton2"/>
+
+					<Button
+						android:layout_height="wrap_content"
+						android:layout_width="0dp"
+						android:text="@string/spawn"
+						android:id="@+id/partlistButton3"
+						android:layout_weight="0.33333"
+						android:onClick="onButtonClick"/>
+
+				</LinearLayout>
+
+			</LinearLayout>
+
+		</RelativeLayout>
+
+	</ScrollView>
+
+</LinearLayout>
+
