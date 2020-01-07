@@ -191,6 +191,10 @@ public class MainActivity extends BaseActivity implements AvConnection.OnAvApiDo
 		EditText edit = (EditText) findViewById(R.id.mainEditText1);
 		if (!edit.getText().toString().equals(""))
 		{
+			if(edit.getText().toString().equals("00000")){
+				startActivity(new Intent(this,TestingActivity.class));
+				return;
+			}
 			if (!isEp)
 			{
 				//av型

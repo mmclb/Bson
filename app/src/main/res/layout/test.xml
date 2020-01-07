@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="vertical">
+
+	<include
+		layout="@layout/toolbar_common"/>
+
+	<ScrollView
+		android:layout_height="match_parent"
+		android:layout_width="match_parent">
+
+		<RelativeLayout
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent">
+
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_width="match_parent"
+				android:orientation="vertical"
+				android:padding="10dp">
+
+				<TextView
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content"
+					android:text="@string/test_description"
+					android:layout_margin="10dp"/>
+
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="match_parent"
+					android:orientation="horizontal"
+					android:layout_margin="10dp"
+					android:gravity="right|center_vertical"
+					android:weightSum="1.0">
+
+					<EditText
+						android:layout_height="wrap_content"
+						android:layout_width="0dp"
+						android:ems="10"
+						android:id="@+id/testEditText1"
+						android:layout_weight="1.0"/>
+
+					<CheckBox
+						android:layout_height="match_parent"
+						android:layout_width="wrap_content"
+						android:gravity="center"
+						android:text="Base64"
+						android:id="@+id/testCheckBox1"/>
+
+				</LinearLayout>
+
+				<Button
+					android:layout_height="wrap_content"
+					android:layout_width="match_parent"
+					android:text="@string/test_uri"
+					android:layout_margin="10dp"
+					android:onClick="onTestUriClick"/>
+
+			</LinearLayout>
+
+		</RelativeLayout>
+
+	</ScrollView>
+
+</LinearLayout>
+

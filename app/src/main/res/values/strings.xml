@@ -49,5 +49,8 @@
 	<string name="cancel">取消</string>
 	<string name="open_in_bilibili">用bilibili打开</string>
 	<string name="open_cover">转至封面下载/预览</string>
+	<string name="test_activity">测试用活动</string>
+	<string name="test_description">其实这个活动是用来测试Uri的...姑且当个彩蛋吧</string>
+	<string name="test_uri">测试uri!</string>
 	
 </resources>
