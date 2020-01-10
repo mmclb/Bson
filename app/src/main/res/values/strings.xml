@@ -1,31 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+	<!--general-->
     <string name="app_name">Bson</string>
     <string name="no_suitable_app">没有合适的App处理Intent:%s</string>
+	<string name="avid">av号</string>
+	<string name="epid">ep号</string>
+	<string name="loading">加载中...</string>
+	
+	<!--main page-->
 	<string name="no_letters">%s(无需前缀字母)</string>
-	<string name="about">关于</string>
 	<string name="no_internet_description">无可用网络,应用无法正常使用.</string>
 	<string name="no_internet_title">无网络</string>
-	<string name="go_to_settings">设置</string>
+	<string name="go_to_settings">去设置</string>
 	<string name="ok">确认</string>
 	<string name="mobile_data_title">移动数据连接</string>
 	<string name="mobile_data_description">当前为移动数据连接,仍然继续?您可以在设置中关闭本提示.</string>
-	<string name="avid">av号</string>
-	<string name="epid">ep号</string>
-	<string name="settings_output_dir">目的位置</string>
 	<string name="spawn">导入!</string>
+	
+	<!--about-->
+	<string name="about">关于</string>
+	
+	<!--settings-->
 	<string name="settings">设置</string>
 	<string name="settings_normal">通用</string>
+	<string name="settings_output_dir">目的位置</string>
 	<string name="settings_promot_on_mobile_data">在移动数据下发出提醒</string>
 	<string name="settings_advanced">高级</string>
 	<string name="settings_advanced_description">不建议修改下列设置.如果您误动了下列设置导致应用无法使用,可使用右边的按钮复原.</string>
 	<string name="settings_advanced_recover">复原高级设置</string>
 	<string name="settings_typetag">类型标签</string>
 	<string name="settings_preferedquality">意向品质</string>
+	<string name="force_bilibili_app">强制使用Bilibili App</string>
+	
+	<!--free ad-->
 	<string name="freead_title">公益广告</string>
-	<string name="freead_description">GsonFormat是一款很实用的应用,配合Gson库可以很快地将Json文本转化为代码.这个应用在本应用开发过程中起了重大作用.事实上,本应用的图标也是用它的图标改造的.因此我决定给它做一个免费的广告.</string>
+	<string name="freead_description">GsonFormat是一款很实用的应用,配合Gson库可以很快地将Json文本转化为代码.这个应用在本应用开发过程中起了重大作用.因此我决定给它做一个免费的广告.</string>
 	<string name="freead_open">GsonFormat</string>
+	
+	<!--part list-->
 	<string name="avid_format">av%d</string>
 	<string name="epid_format">ep%d</string>
 	<string name="api_error">出错了</string>
@@ -38,7 +51,6 @@
 	<string name="favorite_format">收藏:%s</string>
 	<string name="danmaku_format">弹幕:%s</string>
 	<string name="reply_format">评论:%s</string>
-	<string name="loading">加载中...</string>
 	<string name="cid_format">cid=%d</string>
 	<string name="epinfo_format">aid=%1$d cid=%2$d</string>
 	<string name="select">选择...</string>
@@ -49,13 +61,19 @@
 	<string name="cancel">取消</string>
 	<string name="open_in_bilibili">用bilibili打开</string>
 	<string name="open_cover">图片...</string>
+	
+	<!--testing-->
 	<string name="test_activity">测试用活动</string>
 	<string name="test_description">其实这个活动是用来测试Uri的...姑且当个彩蛋吧</string>
 	<string name="test_uri">测试uri!</string>
-	<string name="force_bilibili_app">强制使用Bilibili App</string>
+	
+	<!--image dealing-->
 	<string name="av_cover">封面(av型)</string>
 	<string name="pic_success">成功将%1$s图片保存在%2$s位置.</string>
 	<string name="pic_fail">保存%s失败.</string>
 	<string name="pic_all">%s的所有图片</string>
+	<string name="ep_cover_normal">封面(番剧)</string>
+	<string name="ep_cover_square">封面(番剧,方形)</string>
+	<string name="ep_cover_part">封面(番剧,第%d集)</string>
 	
 </resources>

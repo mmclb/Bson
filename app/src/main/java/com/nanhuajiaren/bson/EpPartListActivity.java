@@ -31,8 +31,13 @@ public class EpPartListActivity extends PartListActivity<EpData> implements EpAv
 	@Override
 	public ImageInfoStorage getImageInfo()
 	{
-		// TODO: Implement this method
-		return null;
+		ImageInfoStorage storage = new ImageInfoStorage();
+		storage.addInfo(typeInfo.mediaInfo.cover,getString(R.string.ep_cover_normal));
+		storage.addInfo(typeInfo.mediaInfo.squareCover,getString(R.string.ep_cover_square));
+		for(int i = 0;i < getTotalPages();i ++){
+			storage.addInfo(typeInfo.epList.get(i).cover,getString(R.string.ep_cover_part,i + 1));
+		}
+		return storage;
 	}
 
 	@Override
