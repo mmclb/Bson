@@ -10,12 +10,13 @@ import android.app.AlertDialog;
 import com.nanhuajiaren.threadannotation.MustCalledInUIThread;
 import android.os.Bundle;
 import android.content.Intent;
+import android.content.ComponentName;
 
 public abstract class BaseActivity extends AppCompatActivity
 {
 	private AlertDialog loadDialog;
 	protected SettingsSaver settingsHelper;
-
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
@@ -109,5 +110,13 @@ public abstract class BaseActivity extends AppCompatActivity
 		}catch(Exception e){
 			print(getString(R.string.no_suitable_app,e.toString()));
 		}
+	}
+	
+	public Intent getBiliBaseIntent(){
+		Intent intent = new Intent();
+		if(getSettings().forceUseBilibiliApp){
+			intent.setComponent(new ComponentName("tv.danmaku.bili","tv.danmaku.bili.ui.intent.IntentHandlerActivity"));
+		}
+		return intent;
 	}
 }

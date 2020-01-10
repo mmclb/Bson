@@ -324,7 +324,7 @@ public abstract class PartListActivity<T> extends BaseActivity
 	{
 		switch(item.getItemId()){
 			case R.id.item_open_in_bilibili:
-				Intent i = new Intent();
+				Intent i = getBiliBaseIntent();
 				Uri uri = Uri.parse(getBiliUri());
 				i.setData(uri);
 				i.setAction(Intent.ACTION_VIEW);
