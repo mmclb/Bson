@@ -339,6 +339,7 @@ public abstract class PartListActivity<T> extends BaseActivity
 				Bundle b = new Bundle();
 				String s = iis.toString();
 				b.putString(ImageShowingActivity.IMAGE_INFO_KEY,s);
+				b.putString(ImageShowingActivity.PAGE_TITLE_KEY,formatTitle());
 				intent.putExtras(b);
 				startActivity(intent);
 				break;

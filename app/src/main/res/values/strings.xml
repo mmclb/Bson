@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">Bson</string>
-    <string name="read_error">内部错误:%s</string>
+    <string name="no_suitable_app">没有合适的App处理Intent:%s</string>
 	<string name="no_letters">%s(无需前缀字母)</string>
 	<string name="about">关于</string>
 	<string name="no_internet_description">无可用网络,应用无法正常使用.</string>
@@ -56,5 +56,6 @@
 	<string name="av_cover">封面(av型)</string>
 	<string name="pic_success">成功将%1$s图片保存在%2$s位置.</string>
 	<string name="pic_fail">保存%s失败.</string>
+	<string name="pic_all">%s的所有图片</string>
 	
 </resources>

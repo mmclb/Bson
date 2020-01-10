@@ -9,6 +9,7 @@ import android.widget.Toast;
 import android.app.AlertDialog;
 import com.nanhuajiaren.threadannotation.MustCalledInUIThread;
 import android.os.Bundle;
+import android.content.Intent;
 
 public abstract class BaseActivity extends AppCompatActivity
 {
@@ -74,6 +75,14 @@ public abstract class BaseActivity extends AppCompatActivity
 		Toast.makeText(this,string,Toast.LENGTH_LONG).show();
 	}
 	
+	public void print(@StringRes int res){
+		print(getString(res));
+	}
+	
+	public void print(@StringRes int res,Object[] obj){
+		print(getString(res,obj));
+	}
+	
 	@MustCalledInUIThread
 	public final void showLoadDialog(){
 		if(loadDialog == null){
@@ -89,6 +98,16 @@ public abstract class BaseActivity extends AppCompatActivity
 		if(loadDialog != null){
 			loadDialog.dismiss();
 			loadDialog =null;
+		}
+	}
+
+	@Override
+	public void startActivity(Intent intent)
+	{
+		try{
+			super.startActivity(intent);
+		}catch(Exception e){
+			print(getString(R.string.no_suitable_app,e.toString()));
 		}
 	}
 }

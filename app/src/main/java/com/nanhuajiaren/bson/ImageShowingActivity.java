@@ -17,10 +17,12 @@ public class ImageShowingActivity extends BaseActivity
 {
 
 	public static final String IMAGE_INFO_KEY = "IMAGE_INFO";
+	public static final String PAGE_TITLE_KEY = "PAGE_TITLE";
 	
 	private ListView listView;
 	private String imageInfoString;
 	private ImageInfoStorage imageInfo;
+	private String titleFormat;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -30,8 +32,11 @@ public class ImageShowingActivity extends BaseActivity
 		Bundle bundle = getIntent().getExtras();
 		imageInfoString = bundle.getString(IMAGE_INFO_KEY);
 		imageInfo = ImageInfoStorage.fromString(imageInfoString);
+		titleFormat = bundle.getString(PAGE_TITLE_KEY);
 		listView = (ListView) findViewById(R.id.imageshowingListView1);
 		listView.setAdapter(new ImageAdapter());
+		setupViews(getString(R.string.pic_all,titleFormat));
+		setBackIconEnabled(true);
 	}
 	
 	private class ImageAdapter extends BaseAdapter
@@ -72,15 +77,19 @@ public class ImageShowingActivity extends BaseActivity
 					DownLoadImageService service = new DownLoadImageService(
 						getData().url,
 						new ImageDownLoadCallBack() {
-
 							@Override
 							public void onDownLoadSuccess(File file) {
-								print(getString(R.string.pic_success,getData().desc,file.getAbsolutePath()));
+								File f2 = new ImageMover().move(file,titleFormat + "/" + getData().desc + ".jpg");
+								if(f2 != null){
+									runOnUiThread(new ToastService(getString(R.string.pic_success,getData().desc,f2.getAbsolutePath())));
+								}else{
+									onDownLoadFailed();
+								}
 							}
 
 							@Override
 							public void onDownLoadFailed() {
-								print(getString(R.string.pic_fail,getData().desc));
+								runOnUiThread(new ToastService(getString(R.string.pic_fail,getData().desc)));
 							}
 						});
 					//启动图片下载线程
@@ -127,6 +136,22 @@ public class ImageShowingActivity extends BaseActivity
 			}
 		}
 
+	}
+	
+	private class ToastService implements Runnable
+	{
+		private String text;
+
+		public ToastService(String text)
+		{
+			this.text = text;
+		}
+
+		@Override
+		public void run()
+		{
+			print(text);
+		}
 	}
 	
 	private static ExecutorService singleExecutor = null;

@@ -259,15 +259,7 @@ public class MainActivity extends BaseActivity implements AvConnection.OnAvApiDo
 					Uri uri = Uri.parse("market://details?id=com.rair.gsonformat4aide");
 					Intent intent = new Intent(Intent.ACTION_VIEW, uri);
 					intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-					try
-					{
-						startActivity(intent);
-					}
-					catch (Exception ex)
-					{
-						ex.printStackTrace();
-						Toast.makeText(MainActivity.this, getString(R.string.read_error, ex.toString()), Toast.LENGTH_LONG).show();
-					}
+					startActivity(intent);
 				}
 			});
 		builder.show();
