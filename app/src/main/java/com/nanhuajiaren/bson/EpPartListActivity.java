@@ -27,6 +27,14 @@ import com.nanhuajiaren.threadannotation.CalledInOtherThreads;
 
 public class EpPartListActivity extends PartListActivity<EpData> implements EpAvConnection.OnEpAvApiDownloadedListener
 {
+
+	@Override
+	public ImageInfoStorage getImageInfo()
+	{
+		// TODO: Implement this method
+		return null;
+	}
+
 	@Override
 	protected void onLoadSuccess()
 	{
@@ -178,8 +186,12 @@ public class EpPartListActivity extends PartListActivity<EpData> implements EpAv
 		}
 	}
 
+	@Override
+	public String getBiliUri()
+	{
+		return EpConnection.epApiURL + typeId;
+	}
+	
 	public static final String EPID_KEY = "EPID_KEY";
 	public static final String INITIAL_INFO_KEY = "INITIAL_INFO_KEY";
-
-
 }

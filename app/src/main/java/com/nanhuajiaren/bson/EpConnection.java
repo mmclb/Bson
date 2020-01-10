@@ -10,7 +10,7 @@ import android.util.Log;
 
 public class EpConnection
 {
-	private static final String epApiURL = "https://m.bilibili.com/bangumi/play/ep";
+	public static final String epApiURL = "https://m.bilibili.com/bangumi/play/ep";
 	private static final String startPoint = "window.__INITIAL_STATE__={";
 	//                                                                 ↑
 	private static final String endPoint = ";";

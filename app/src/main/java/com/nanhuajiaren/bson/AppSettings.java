@@ -11,6 +11,7 @@ public class AppSettings
 	public boolean showStats = true;
 	public String typeTag = typeTagDefault;
 	public int preferedQuality = preferedQualityDefault;
+	public boolean forceUseBilibiliApp = false;
 	
 	public void recoverDefaultAdvancedSettings(){
 		typeTag = typeTagDefault;

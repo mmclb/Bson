@@ -165,37 +165,18 @@ public class AvPartListActivity extends PartListActivity<AvData>
 	{
 		return typeInfo.data.pic;
 	}
-	
-//	@Override
-//	public boolean onOptionsItemSelected(MenuItem item)
-//	{
-//		switch(item.getItemId()){
-//			case R.id.item_open_in_bilibili:
-//				Intent i = new Intent();
-//				Uri uri = Uri.parse(BILIBILI_Uri + avId);
-//				i.setData(uri);
-//				i.setAction(Intent.ACTION_VIEW);
-//				try{startActivity(i);}catch(Exception e){print(e.toString());}
-//				break;
-//			case R.id.item_open_cover:
-//				Intent i2 = new Intent();
-//				if(avResult.code != 0){
-//					break;
-//				}
-//				Uri uri2 = Uri.parse(avResult.data.pic);
-//				i2.setData(uri2);
-//				i2.setAction(Intent.ACTION_VIEW);
-//				startActivity(i2);
-//				break;
-//		}
-//		return true;
-//	}
-//
-//	@Override
-//	public boolean onCreateOptionsMenu(Menu menu)
-//	{
-//		getMenuInflater().inflate(R.menu.menu_avpartlist,menu);
-//		return true;
-//	}
-//	
+
+	@Override
+	public String getBiliUri()
+	{
+		return BILIBILI_Uri + typeId;
+	}
+
+	@Override
+	public ImageInfoStorage getImageInfo()
+	{
+		ImageInfoStorage storage = new ImageInfoStorage();
+		storage.addInfo(typeInfo.data.pic,getString(R.string.av_cover));
+		return storage;
+	}
 }

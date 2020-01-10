@@ -21,6 +21,9 @@ import android.content.DialogInterface;
 import java.lang.reflect.Type;
 import java.lang.reflect.ParameterizedType;
 import android.text.method.LinkMovementMethod;
+import android.view.MenuItem;
+import android.net.Uri;
+import android.view.Menu;
 
 public abstract class PartListActivity<T> extends BaseActivity
 {
@@ -47,6 +50,8 @@ public abstract class PartListActivity<T> extends BaseActivity
 	public abstract int getCid(int part)
 	public abstract String getCoverUrl(int part)
 	public abstract int getPartInAv(int part)
+	public abstract String getBiliUri()
+	public abstract ImageInfoStorage getImageInfo()
 	
 	private List<Integer> importButtonIds = new ArrayList<Integer>();
 	private List<Integer> selectCheckBoxIds = new ArrayList<Integer>();
@@ -313,4 +318,39 @@ public abstract class PartListActivity<T> extends BaseActivity
 		super.onResume();
 		refreshAllProgress();
 	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item)
+	{
+		switch(item.getItemId()){
+			case R.id.item_open_in_bilibili:
+				Intent i = new Intent();
+				Uri uri = Uri.parse(getBiliUri());
+				i.setData(uri);
+				i.setAction(Intent.ACTION_VIEW);
+				try{startActivity(i);}catch(Exception e){print(e.toString());}
+				break;
+			case R.id.item_open_cover:
+				ImageInfoStorage iis = getImageInfo();
+				if(iis == null){
+					return true;
+				}
+				Intent intent = new Intent(PartListActivity.this,ImageShowingActivity.class);
+				Bundle b = new Bundle();
+				String s = iis.toString();
+				b.putString(ImageShowingActivity.IMAGE_INFO_KEY,s);
+				intent.putExtras(b);
+				startActivity(intent);
+				break;
+		}
+		return true;
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu)
+	{
+		getMenuInflater().inflate(R.menu.menu_partlist,menu);
+		return true;
+	}
+	
 }

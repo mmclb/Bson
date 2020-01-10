@@ -105,6 +105,33 @@
 
 				</LinearLayout>
 
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="match_parent"
+					android:orientation="horizontal"
+					android:layout_margin="10dp"
+					android:gravity="left|center_horizontal">
+
+					<TextView
+						android:layout_height="match_parent"
+						android:layout_width="wrap_content"
+						android:text="@string/force_bilibili_app"
+						android:gravity="center"/>
+
+					<RelativeLayout
+						android:layout_height="wrap_content"
+						android:layout_width="match_parent"
+						android:gravity="right|center_horizontal">
+
+						<CheckBox
+							android:layout_height="wrap_content"
+							android:layout_width="wrap_content"
+							android:id="@+id/appsettingsCheckBox3"/>
+
+					</RelativeLayout>
+
+				</LinearLayout>
+
 				<TextView
 					android:layout_height="wrap_content"
 					android:layout_width="wrap_content"

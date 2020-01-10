@@ -8,6 +8,8 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.view.View;
 import com.nanhuajiaren.threadannotation.MustCalledInUIThread;
+import java.lang.reflect.Field;
+import java.util.List;
 
 public class AppSettingsActivity extends BaseActivity
 {
@@ -38,6 +40,8 @@ public class AppSettingsActivity extends BaseActivity
 		checkbox1.setChecked(currentSettings.promotOnMobileData);
 		CheckBox checkbox2 = (CheckBox) findViewById(R.id.appsettingsCheckBox2);
 		checkbox2.setChecked(currentSettings.showStats);
+		CheckBox checkbox3 = (CheckBox) findViewById(R.id.appsettingsCheckBox3);
+		checkbox3.setChecked(currentSettings.forceUseBilibiliApp);
 	}
 	
 	@MustCalledInUIThread
@@ -81,6 +85,14 @@ public class AppSettingsActivity extends BaseActivity
 				@Override
 				public void onCheckedChanged(CompoundButton p1,boolean p2){
 					currentSettings.showStats = p2;
+					settingsHelper.save(currentSettings);
+				}
+			});
+		CheckBox checkbox3 = (CheckBox) findViewById(R.id.appsettingsCheckBox3);
+		checkbox3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
+				@Override
+				public void onCheckedChanged(CompoundButton p1,boolean p2){
+					currentSettings.forceUseBilibiliApp = p2;
 					settingsHelper.save(currentSettings);
 				}
 			});
