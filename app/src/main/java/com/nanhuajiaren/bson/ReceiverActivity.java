@@ -22,38 +22,33 @@ public class ReceiverActivity extends ApiHostActivity
 	
 	private boolean dealIntent(){
 		String sharedText = getIntent().getStringExtra(Intent.EXTRA_TEXT);
-		int i = sharedText.indexOf("http://www.bilibili.com");
-		if(i < 0){
-			return false;
-		}
-		sharedText = sharedText.substring(i);
 		
-		Pattern patternAv = Pattern.compile("av[1-9][0-9]*");
+		Pattern patternAv = Pattern.compile("/av[1-9][0-9]*");
 		Matcher matchAv = patternAv.matcher(sharedText);
 		if (matchAv.find())
 		{
 			String av = matchAv.group();
-			long avid = Integer.parseInt(av.substring(2));
+			long avid = Integer.parseInt(av.substring(3));
 			new AvConnection(avid, this).startAvApiRequest();
 			return true;
 		}
 		
-		Pattern patternEp = Pattern.compile("ep[1-9][0-9]*");
+		Pattern patternEp = Pattern.compile("/ep[1-9][0-9]*");
 		Matcher matchEp = patternEp.matcher(sharedText);
 		if (matchEp.find())
 		{
 			String ep = matchEp.group();
-			long epid = Integer.parseInt(ep.substring(2));
+			long epid = Integer.parseInt(ep.substring(3));
 			new EpConnection(epid, this).startConnection();
 			return true;
 		}
 		
-		Pattern patternSs = Pattern.compile("ss[1-9][0-9]*");
+		Pattern patternSs = Pattern.compile("/ss[1-9][0-9]*");
 		Matcher matchSs = patternSs.matcher(sharedText);
 		if (matchSs.find())
 		{
 			String ss = matchSs.group();
-			long ssid = Integer.parseInt(ss.substring(2));
+			long ssid = Integer.parseInt(ss.substring(3));
 			new SsConnection(ssid, this).startConnection();
 			return true;
 		}
