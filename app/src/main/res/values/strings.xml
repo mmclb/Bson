@@ -79,4 +79,8 @@
 	<string name="ep_cover_square">封面(番剧,方形)</string>
 	<string name="ep_cover_part">封面(番剧,第%d集)</string>
 	
+	<!--share intent dealing-->
+	<string name="spawn_entry">视频解析</string>
+	<string name="intent_error">不要给我塞奇怪的东西!</string>
+	
 </resources>

@@ -16,7 +16,7 @@ public class AvConnection
 	
 	public static interface OnAvApiDownloadedListener{
 		@CalledInOtherThreads
-		public void onAvApiDownloaded(String avApiResult)
+		public void onAvApiDownloaded(long avid,String avApiResult)
 	}
 	
 	private long avId = 0;
@@ -33,11 +33,11 @@ public class AvConnection
 			public void run(){
 				try
 				{
-					listenerAv.onAvApiDownloaded(BasicIO.readURL(AV_API_URL + AvConnection.this.avId));
+					listenerAv.onAvApiDownloaded(avId,BasicIO.readURL(AV_API_URL + AvConnection.this.avId));
 				}
 				catch (IOException e)
 				{
-					listenerAv.onAvApiDownloaded("{\"code\":-999}");
+					listenerAv.onAvApiDownloaded(avId,"{\"code\":-999}");
 				}
 			}
 		}.start();

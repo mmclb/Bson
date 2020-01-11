@@ -36,7 +36,7 @@ public class EpAvConnection
 
 		@Override
 		@CalledInOtherThreads
-		public void onAvApiDownloaded(String avApiResult)
+		public void onAvApiDownloaded(long avid,String avApiResult)
 		{
 			AvData avData = new Gson().fromJson(avApiResult,AvData.class);
 			data.epList.get(partGoing).linkedAvData = avData;

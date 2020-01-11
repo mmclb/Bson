@@ -8,12 +8,11 @@ public abstract class ApiHostActivity extends BaseActivity implements AvConnecti
 {
 	@Override
 	@CalledInOtherThreads
-	public void onAvApiDownloaded(String avApiResult)
+	public void onAvApiDownloaded(long avId,String avApiResult)
 	{
-		EditText edit = (EditText) findViewById(R.id.mainEditText1);
 		Intent intent = new Intent(this, AvPartListActivity.class);
 		Bundle bundle = new Bundle();
-		bundle.putLong(AvPartListActivity.AVID_KEY, Long.parseLong(edit.getText().toString()));
+		bundle.putLong(AvPartListActivity.AVID_KEY, avId);
 		bundle.putString(AvPartListActivity.AVINFO_KEY,avApiResult);
 		intent.putExtras(bundle);
 		startActivity(intent);
@@ -27,12 +26,11 @@ public abstract class ApiHostActivity extends BaseActivity implements AvConnecti
 
 	@Override
 	@CalledInOtherThreads
-	public void onEpApiDownloaded(String initialInfo)
+	public void onEpApiDownloaded(long epId,String initialInfo)
 	{
-		EditText edit = (EditText) findViewById(R.id.mainEditText1);
 		Intent intent = new Intent(this, EpPartListActivity.class);
 		Bundle bundle = new Bundle();
-		bundle.putLong(EpPartListActivity.EPID_KEY, Long.parseLong(edit.getText().toString()));
+		bundle.putLong(EpPartListActivity.EPID_KEY, epId);
 		bundle.putString(EpPartListActivity.INITIAL_INFO_KEY,initialInfo);
 		intent.putExtras(bundle);
 		startActivity(intent);
@@ -45,12 +43,11 @@ public abstract class ApiHostActivity extends BaseActivity implements AvConnecti
 	}
 
 	@Override
-	public void onSsApiDownloaded(String s)
+	public void onSsApiDownloaded(long ssId,String s)
 	{
-		EditText edit = (EditText) findViewById(R.id.mainEditText1);
 		Intent intent = new Intent(this, SsPartListActivity.class);
 		Bundle bundle = new Bundle();
-		bundle.putLong(SsPartListActivity.EPID_KEY, Long.parseLong(edit.getText().toString()));
+		bundle.putLong(SsPartListActivity.EPID_KEY, ssId);
 		bundle.putString(SsPartListActivity.INITIAL_INFO_KEY,s);
 		intent.putExtras(bundle);
 		startActivity(intent);

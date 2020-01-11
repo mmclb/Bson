@@ -13,9 +13,9 @@ public class SsConnection extends BangumiConnection<SsConnection.SsApiDownloadLi
 	public static String epApiURL = "https://m.bilibili.com/bangumi/play/ss";
 
 	@Override
-	public void onFinish(SsConnection.SsApiDownloadListener listener, String data)
+	public void onFinish(String data)
 	{
-		listener.onSsApiDownloaded(data);
+		listener.onSsApiDownloaded(ep,data);
 	}
 	
 	public SsConnection(long ss,SsApiDownloadListener listener){
@@ -23,6 +23,6 @@ public class SsConnection extends BangumiConnection<SsConnection.SsApiDownloadLi
 	}
 	
 	public static interface SsApiDownloadListener{
-		public void onSsApiDownloaded(String s)
+		public void onSsApiDownloaded(long ssId,String s)
 	}
 }

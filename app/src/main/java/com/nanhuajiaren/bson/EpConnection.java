@@ -19,12 +19,12 @@ public class EpConnection extends BangumiConnection<EpConnection.EpApiDownloadLi
 	}
 	
 	@Override
-	public void onFinish(EpConnection.EpApiDownloadListener listener, String data)
+	public void onFinish(String data)
 	{
-		listener.onEpApiDownloaded(data);
+		listener.onEpApiDownloaded(ep,data);
 	}
 
 	public static interface EpApiDownloadListener{
-		public void onEpApiDownloaded(String data)
+		public void onEpApiDownloaded(long epId,String data)
 	}
 }
