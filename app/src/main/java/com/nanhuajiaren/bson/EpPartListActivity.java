@@ -29,6 +29,12 @@ public class EpPartListActivity extends PartListActivity<EpData> implements EpAv
 {
 
 	@Override
+	public Class<EpData> getTClass()
+	{
+		return EpData.class;
+	}
+	
+	@Override
 	public ImageInfoStorage getImageInfo()
 	{
 		ImageInfoStorage storage = new ImageInfoStorage();
@@ -194,7 +200,7 @@ public class EpPartListActivity extends PartListActivity<EpData> implements EpAv
 	@Override
 	public String getBiliUri()
 	{
-		return EpConnection.epApiURL + typeId;
+		return EpConnection.epApiUrl + typeId;
 	}
 	
 	public static final String EPID_KEY = "EPID_KEY";

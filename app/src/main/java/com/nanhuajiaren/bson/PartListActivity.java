@@ -52,6 +52,7 @@ public abstract class PartListActivity<T> extends BaseActivity
 	public abstract int getPartInAv(int part)
 	public abstract String getBiliUri()
 	public abstract ImageInfoStorage getImageInfo()
+	public abstract Class<T> getTClass()
 	
 	private List<Integer> importButtonIds = new ArrayList<Integer>();
 	private List<Integer> selectCheckBoxIds = new ArrayList<Integer>();
@@ -151,17 +152,13 @@ public abstract class PartListActivity<T> extends BaseActivity
 	@MustCalledInUIThread
 	public void showResult()
 	{
-		Type t = getClass().getGenericSuperclass();
-        ParameterizedType p = (ParameterizedType) t ;
-        Class<T> c = (Class<T>) p.getActualTypeArguments()[0];
-		
 		try
 		{
-			typeInfo = new Gson().fromJson(typeInfoString,c);
+			typeInfo = new Gson().fromJson(typeInfoString,getTClass());
 		}
 		catch (Exception e)
 		{
-			typeInfo = new Gson().fromJson(getErrorHandlingData(e.toString()),c);
+			typeInfo = new Gson().fromJson(getErrorHandlingData(e.toString()),getTClass());
 		}
 		TextView text1 = (TextView) findViewById(R.id.partlistTextView1);
 		TextView text2 = (TextView) findViewById(R.id.partlistTextView2);
@@ -322,6 +319,9 @@ public abstract class PartListActivity<T> extends BaseActivity
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item)
 	{
+		if(super.onOptionsItemSelected(item)){
+			return true;
+		}
 		switch(item.getItemId()){
 			case R.id.item_open_in_bilibili:
 				Intent i = getBiliBaseIntent();

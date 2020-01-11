@@ -30,48 +30,44 @@
 					android:id="@+id/mainEditText1"
 					android:inputType="number"/>
 
-				<LinearLayout
+				<RadioGroup
 					android:layout_height="wrap_content"
 					android:layout_width="match_parent"
 					android:orientation="horizontal"
-					android:weightSum="1.0"
+					android:gravity="center"
+					android:id="@+id/mainRadioGroup1"
 					android:layout_margin="10dp">
 
-					<Button
+					<RadioButton
 						android:layout_height="wrap_content"
-						android:layout_width="0dp"
-						android:text="@string/spawn"
-						android:layout_weight="0.5"
-						android:layout_marginRight="5dp"
-						android:onClick="onImportButtonClicked"/>
+						android:layout_width="wrap_content"
+						android:text="@string/avid"
+						android:layout_weight="0.33333"
+						android:checked="true"
+						android:id="@+id/mainRadioButton1"/>
 
-					<RadioGroup
-						android:layout_height="match_parent"
-						android:layout_width="0dp"
-						android:orientation="horizontal"
-						android:layout_weight="0.5"
-						android:gravity="center"
-						android:layout_marginLeft="5dp"
-						android:id="@+id/mainRadioGroup1">
+					<RadioButton
+						android:layout_height="wrap_content"
+						android:layout_width="wrap_content"
+						android:text="@string/epid"
+						android:layout_weight="0.33333"
+						android:id="@+id/mainRadioButton2"/>
 
-						<RadioButton
-							android:layout_height="match_parent"
-							android:layout_width="wrap_content"
-							android:text="@string/avid"
-							android:layout_weight="0.25"
-							android:checked="true"
-							android:id="@+id/mainRadioButton1"/>
+					<RadioButton
+						android:layout_height="wrap_content"
+						android:layout_width="wrap_content"
+						android:layout_weight="0.33333"
+						android:text="@string/ssid"
+						android:id="@+id/mainRadioButton3"/>
 
-						<RadioButton
-							android:layout_height="match_parent"
-							android:layout_width="wrap_content"
-							android:text="@string/epid"
-							android:layout_weight="0.25"
-							android:id="@+id/mainRadioButton2"/>
+				</RadioGroup>
 
-					</RadioGroup>
-
-				</LinearLayout>
+				<Button
+					android:layout_height="wrap_content"
+					android:layout_width="match_parent"
+					android:text="@string/spawn"
+					android:onClick="onImportButtonClicked"
+					android:layout_margin="10dp"/>
 
 			</LinearLayout>
 

@@ -7,7 +7,6 @@ import java.io.InputStreamReader;
 
 public abstract class BangumiConnection<T>
 {
-	public static final String epApiURL = "https://m.bilibili.com/bangumi/play/ep";
 	private static final String startPoint = "window.__INITIAL_STATE__={";
 	//                                                                 ↑
 	private static final String endPoint = ";";
@@ -35,7 +34,7 @@ public abstract class BangumiConnection<T>
 			{
 				try
 				{
-					URL url = new URL(epApiURL + ep);
+					URL url = new URL(getApiUrl() + ep);
 					HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 					conn.setRequestProperty("User-Agent", "Mozilla/5.0(Macintosh;IntelMacOSX10_7_0)AppleWebKit/535.11(KHTML,likeGecko)Chrome/17.0.963.56Safari/535.11");
 					if(conn.getResponseCode() != 200){
@@ -76,4 +75,5 @@ public abstract class BangumiConnection<T>
 	}
 	
 	public abstract void onFinish(T listener,String data)
+	public abstract String getApiUrl()
 }

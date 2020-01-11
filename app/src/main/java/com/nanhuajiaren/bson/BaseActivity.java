@@ -60,7 +60,7 @@ public abstract class BaseActivity extends AppCompatActivity
 			case android.R.id.home:
 				return onHomePressed();
 		}
-		return super.onOptionsItemSelected(item);
+		return false;
 	}
 	
 	public boolean onHomePressed(){

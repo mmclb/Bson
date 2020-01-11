@@ -6,6 +6,7 @@
     <string name="no_suitable_app">没有合适的App处理Intent:%s</string>
 	<string name="avid">av号</string>
 	<string name="epid">ep号</string>
+	<string name="ssid">ss号</string>
 	<string name="loading">加载中...</string>
 	
 	<!--main page-->
@@ -25,6 +26,7 @@
 	<string name="settings">设置</string>
 	<string name="settings_normal">通用</string>
 	<string name="settings_output_dir">目的位置</string>
+	<string name="settings_output_not_exist">输出文件夹不存在!</string>
 	<string name="settings_promot_on_mobile_data">在移动数据下发出提醒</string>
 	<string name="settings_advanced">高级</string>
 	<string name="settings_advanced_description">不建议修改下列设置.如果您误动了下列设置导致应用无法使用,可使用右边的按钮复原.</string>
@@ -41,6 +43,7 @@
 	<!--part list-->
 	<string name="avid_format">av%d</string>
 	<string name="epid_format">ep%d</string>
+	<string name="ssid_format">ss%d</string>
 	<string name="api_error">出错了</string>
 	<string name="stats">统计</string>
 	<string name="settings_show_stats">显示统计</string>

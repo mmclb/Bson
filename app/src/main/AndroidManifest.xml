@@ -24,6 +24,8 @@
 		<activity
 			android:name=".EpPartListActivity"/>
 		<activity
+			android:name=".SsPartListActivity"/>
+		<activity
 			android:name=".TestingActivity"/>
 		<activity
 			android:name=".ImageShowingActivity"/>

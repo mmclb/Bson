@@ -20,16 +20,18 @@ import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.Toast;
 import com.nanhuajiaren.threadannotation.CalledInOtherThreads;
 import com.nanhuajiaren.threadannotation.MustCalledInUIThread;
+import java.io.File;
 
-public class MainActivity extends BaseActivity implements AvConnection.OnAvApiDownloadedListener,EpConnection.EpApiDownloadListener
+public class MainActivity extends ApiHostActivity
 {
 	
 	private static final int REQUIRE_EXTERNAL_STORAGE = 1;
 
 	private boolean haveMobileDataPromoted = false;
 	
-	private boolean isEp = false;
-
+	private AlertDialog internetAccessDialog;
+	private AlertDialog outputDirDialog;
+	
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -60,15 +62,14 @@ public class MainActivity extends BaseActivity implements AvConnection.OnAvApiDo
 	{
 		EditText edit = (EditText) findViewById(R.id.mainEditText1);
 		edit.setHint(getString(R.string.no_letters, ((RadioButton) findViewById(radioButtonId)).getText().toString()));
-		isEp = radioButtonId == R.id.mainRadioButton2;
 	}
 
 	@Override
 	protected void onResume()
 	{
-		// TODO: Implement this method
 		super.onResume();
 		checkInternetAccess();
+		checkOutputDir();
 	}
 
 	public int getConnectedType()
@@ -107,7 +108,10 @@ public class MainActivity extends BaseActivity implements AvConnection.OnAvApiDo
 						checkInternetAccess();
 					}
 				});
-			builder.show();
+			if(internetAccessDialog != null){
+				internetAccessDialog.dismiss();
+			}
+			internetAccessDialog = builder.show();
 		}
 		else if (connection == 0 && !haveMobileDataPromoted && getSettings().promotOnMobileData)
 		{
@@ -123,11 +127,36 @@ public class MainActivity extends BaseActivity implements AvConnection.OnAvApiDo
 
 					}
 				});
-			builder.show();
+			internetAccessDialog = builder.show();
 			haveMobileDataPromoted = true;
 		}
 	}
 
+	@MustCalledInUIThread
+	public void checkOutputDir(){
+		if(!new File(getSettings().bilibiliDownloadDirectory).exists()){
+			AlertDialog.Builder builder = new AlertDialog.Builder(this);
+			builder.setMessage(R.string.settings_output_not_exist);
+			builder.setPositiveButton(R.string.go_to_settings,new DialogInterface.OnClickListener(){
+				@Override
+				public void onClick(DialogInterface p1,int p2){
+					startActivity(new Intent(MainActivity.this, AppSettingsActivity.class));
+				}
+			});
+			builder.setNegativeButton(R.string.ok,new DialogInterface.OnClickListener(){
+				@Override
+				public void onClick(DialogInterface p1,int p2){
+					checkOutputDir();
+				}
+			});
+			builder.setCancelable(false);
+			if(outputDirDialog != null){
+				outputDirDialog.dismiss();
+			}
+			outputDirDialog = builder.show();
+		}
+	}
+	
     public void openSettingUI()
 	{
         startActivity(new Intent(Settings.ACTION_SETTINGS));
@@ -144,7 +173,6 @@ public class MainActivity extends BaseActivity implements AvConnection.OnAvApiDo
 	@Override
 	public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults)
 	{
-		// TODO: Implement this method
 		super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 		boolean flag = grantResults.length > 0;
 		for (int i = 0;i < grantResults.length;i ++)
@@ -195,55 +223,27 @@ public class MainActivity extends BaseActivity implements AvConnection.OnAvApiDo
 				startActivity(new Intent(this,TestingActivity.class));
 				return;
 			}
-			if (!isEp)
-			{
-				//av型
-				showLoadDialog();
-				new AvConnection(Long.parseLong(edit.getText().toString()),this).startAvApiRequest();
-			}else{
-				//ep型
-				showLoadDialog();
-				new EpConnection(Long.parseLong(edit.getText().toString()),this).startConnection();
+			RadioGroup rg = (RadioGroup) findViewById(R.id.mainRadioGroup1);
+			switch(rg.getCheckedRadioButtonId()){
+				case R.id.mainRadioButton1:
+					//av型
+					showLoadDialog();
+					new AvConnection(Long.parseLong(edit.getText().toString()),this).startAvApiRequest();
+					break;
+				case R.id.mainRadioButton2:
+					//ep型
+					showLoadDialog();
+					new EpConnection(Long.parseLong(edit.getText().toString()),this).startConnection();
+					break;
+				case R.id.mainRadioButton3:
+					//ss型
+					showLoadDialog();
+					new SsConnection(Long.parseLong(edit.getText().toString()),this).startConnection();
+					break;
 			}
 		}
 	}
 
-	@Override
-	@CalledInOtherThreads
-	public void onAvApiDownloaded(String avApiResult)
-	{
-		EditText edit = (EditText) findViewById(R.id.mainEditText1);
-		Intent intent = new Intent(this, AvPartListActivity.class);
-		Bundle bundle = new Bundle();
-		bundle.putLong(AvPartListActivity.AVID_KEY, Long.parseLong(edit.getText().toString()));
-		bundle.putString(AvPartListActivity.AVINFO_KEY,avApiResult);
-		intent.putExtras(bundle);
-		startActivity(intent);
-		runOnUiThread(new Runnable(){
-			@Override
-			public void run(){
-				hideLoadDialog();
-			}
-		});
-	}
-
-	@Override
-	public void onEpApiDownloaded(String initialInfo)
-	{
-		EditText edit = (EditText) findViewById(R.id.mainEditText1);
-		Intent intent = new Intent(this, EpPartListActivity.class);
-		Bundle bundle = new Bundle();
-		bundle.putLong(EpPartListActivity.EPID_KEY, Long.parseLong(edit.getText().toString()));
-		bundle.putString(EpPartListActivity.INITIAL_INFO_KEY,initialInfo);
-		intent.putExtras(bundle);
-		startActivity(intent);
-		runOnUiThread(new Runnable(){
-				@Override
-				public void run(){
-					hideLoadDialog();
-				}
-			});
-	}
 	
 	@MustCalledInUIThread
 	public void freead()
@@ -263,5 +263,19 @@ public class MainActivity extends BaseActivity implements AvConnection.OnAvApiDo
 				}
 			});
 		builder.show();
+	}
+
+	@Override
+	protected void onPause()
+	{
+		super.onPause();
+		if(internetAccessDialog != null){
+			internetAccessDialog.dismiss();
+			internetAccessDialog = null;
+		}
+		if(outputDirDialog != null){
+			outputDirDialog.dismiss();
+			outputDirDialog = null;
+		}
 	}
 }

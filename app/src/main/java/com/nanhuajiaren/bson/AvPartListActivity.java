@@ -38,6 +38,12 @@ public class AvPartListActivity extends PartListActivity<AvData>
 	private static final String BILIBILI_Uri = "bilibili://video/";
 
 	@Override
+	public Class<AvData> getTClass()
+	{
+		return AvData.class;
+	}
+	
+	@Override
 	public String getTypeIdKey()
 	{
 		return AVID_KEY;

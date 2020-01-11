@@ -16,6 +16,7 @@ public class TestingActivity extends BaseActivity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.test);
 		setupViews(R.string.test_activity);
+		setBackIconEnabled(true);
 	}
 	
 	public void onTestUriClick(View v){

@@ -1,15 +1,18 @@
 package com.nanhuajiaren.bson;
-import com.nanhuajiaren.BasicIO.BasicIO;
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import android.util.Log;
+
 
 
 public class EpConnection extends BangumiConnection<EpConnection.EpApiDownloadListener>
 {
+
+	public static final String epApiUrl = "https://m.bilibili.com/bangumi/play/ep";
+	
+	@Override
+	public String getApiUrl()
+	{
+		return epApiUrl;
+	}
+
 
 	public EpConnection(long ep,EpApiDownloadListener listener){
 		super(ep,listener);

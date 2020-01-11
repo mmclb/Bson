@@ -51,7 +51,7 @@ public class AppSettingsActivity extends BaseActivity
 				@Override
 				public void saveSettings(String settings){
 					currentSettings.bilibiliDownloadDirectory = settings;
-					settingsHelper.save(settings);
+					settingsHelper.save(currentSettings);
 				}
 			});
 		EditText edit2 = (EditText) findViewById(R.id.appsettingsEditText2);
@@ -110,13 +110,13 @@ public class AppSettingsActivity extends BaseActivity
 		@Override
 		public void onTextChanged(CharSequence p1, int p2, int p3, int p4)
 		{
-			saveSettings(p1.toString());
+			
 		}
 
 		@Override
 		public void afterTextChanged(Editable p1)
 		{
-			
+			saveSettings(p1.toString());
 		}
 		
 		public abstract void saveSettings(String settings)
@@ -127,5 +127,18 @@ public class AppSettingsActivity extends BaseActivity
 		currentSettings.recoverDefaultAdvancedSettings();
 		settingsHelper.save(currentSettings);
 		loadSettings();
+	}
+
+	@Override
+	protected void onPause()
+	{
+		super.onPause();
+		AppSettings settings = getSettings();
+		String path = settings.bilibiliDownloadDirectory;
+		if(!path.endsWith("/")){
+			path = path + "/";
+			settings.bilibiliDownloadDirectory = path;
+			settingsHelper.save(settings);
+		}
 	}
 }
